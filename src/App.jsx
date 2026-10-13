@@ -2,11 +2,16 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Admin from "./Admin";
 
-const API = "http://localhost:8080/api/clubs";
-const STUDENT_API = "http://localhost:8080/api/students";
-const MEMBERSHIP_API = "http://localhost:8080/api/memberships";
-const EVENTS_API = "http://localhost:8080/api/events";
-const ANNOUNCEMENTS_API = "http://localhost:8080/api/announcements";
+const API_BASE_URL = (
+  import.meta.env.VITE_API_BASE_URL ||
+  "http://localhost:8080"
+).replace(/\/+$/, "");
+
+const API = `${API_BASE_URL}/api/clubs`;
+const STUDENT_API = `${API_BASE_URL}/api/students`;
+const MEMBERSHIP_API = `${API_BASE_URL}/api/memberships`;
+const EVENTS_API = `${API_BASE_URL}/api/events`;
+const ANNOUNCEMENTS_API = `${API_BASE_URL}/api/announcements`;
 
 const clubDetails = [
   {
